@@ -8,6 +8,22 @@ FLBuilderCSS::border_field_rule(array(
     'selector' => ".fl-node-$id .im-authorbox-content",
 ));
 
+FLBuilderCSS::typography_field_rule(
+    array(
+        'settings'     => $settings,
+        'setting_name' => 'authorname_typo',
+        'selector'     => ".fl-node-$id .im-authorbox-authorname",
+    )
+);
+
+FLBuilderCSS::typography_field_rule(
+    array(
+        'settings'     => $settings,
+        'setting_name' => 'bio_typo',
+        'selector'     => ".fl-node-$id .im-authorbox-bio",
+    )
+);
+
 FLBuilderCSS::dimension_field_rule(
     array(
         'settings'     => $settings,
@@ -25,6 +41,22 @@ FLBuilderCSS::dimension_field_rule(
 
 ?>
 
+/* AuthorBox */
 .fl-node-<?php echo $id; ?> .im-authorbox-container {
 flex-direction : <?php echo $container_flex_direction; ?>;
+}
+
+/* Authorname color*/
+.fl-node-<?php echo $id; ?> .im-authorbox-authorname * {
+    color: <?php echo '#'.$settings->authorname_color; ?> ;
+}
+
+/* Biography color*/
+.fl-node-<?php echo $id; ?> .im-authorbox-bio {
+    color: <?php echo '#'.$settings->bio_color; ?> ;
+}
+
+/* Box Background color */
+.fl-node-<?php echo $id; ?> .im-authorbox-content {
+    background-color: <?php echo '#'.$settings->bg_color; ?> ;
 }

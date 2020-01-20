@@ -7,12 +7,12 @@
 */
 
 class IMBB_AuthorBoxModule extends FLBuilderModule{
-    
+
     /*
     * The module construct.
     */
     public function __construct() {
-        
+
         parent::__construct( array(
             'name'            => __('Author box', 'imbb'),                            
             'description'     => __('A module for displaying author information below content posts.', 'imbb'),
@@ -105,6 +105,33 @@ FLBuilder::register_module(
                                 'selector' => '.im-authorbox-content',
                             ),
                         ),
+                        'box_bg_type' => array(
+                            'type'    => 'select',
+                            'label'   => __( 'Select Background', 'imbb' ),
+                            'default' => 'color',
+                            'options' => array(
+                                ''         => __( 'None', 'imbb' ),
+                                'color'    => __( 'Color', 'imbb' ),
+                            ),
+                            'toggle'  => array(
+                                'color'    => array(
+                                    'fields' => array( 'bg_color' ),
+                                ),
+                            ),
+                        ),
+                        'bg_color'                   => array(
+                            'type'        => 'color',
+                            'connections' => array( 'color' ),
+                            'label'       => __( 'Background Color', 'uabb' ),
+                            'default'     => '',
+                            'show_reset'  => true,
+                            'show_alpha'  => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.im-authorbox-content',
+                                'property' => 'background',
+                            ),
+                        ),
                         'box_padding'        => array(
                             'type'        => 'dimension',
                             'label'       => __('Padding', 'imbb'),
@@ -122,5 +149,73 @@ FLBuilder::register_module(
                 ),
             ),
         ),
+        'authorbox_typo' => array(
+            'title' => __('Typography', 'imbb'),
+            'sections' => array(
+                'name_style' => array(
+                    'title' => __('Name styling', 'imbb'),
+                    'fields' => array(
+                        'authorname_tag' => array(
+                            'type' => 'select',
+                            'label' => __('Heading Tag', 'imbb'),
+                            'default' => 'h3',
+                            'options' => array(
+                                'h1' => 'h1',
+                                'h2' => 'h2',
+                                'h3' => 'h3',
+                                'h4' => 'h4',
+                                'h5' => 'h5',
+                                'h6' => 'h6',
+                            ),
+                        ),
+                        'authorname_typo'      => array(
+                            'type'       => 'typography',
+                            'label'      => __( 'Name', 'imbb' ),
+                            'responsive' => true,
+                            'preview'    => array(
+                                'type'     => 'css',
+                                'selector' => '.im-authorbox-authorname',
+                            ),
+                        ),
+                        'authorname_color'      => array(
+                            'type'        => 'color',
+                            'label'       => __('Name Color', 'imbb'),
+                            'show_reset'  => true,
+                            'show_alpha'  => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.im-authorbox-authorname *',
+                                'property' => 'color',
+                            ),
+                        ),
+                    ),
+                ),
+                'bio_style' => array(
+                    'title' => __('Biography styling', 'imbb'),
+                    'fields' => array(
+                        'bio_typo'      => array(
+                            'type'       => 'typography',
+                            'label'      => __( 'Biography', 'imbb' ),
+                            'responsive' => true,
+                            'preview'    => array(
+                                'type'     => 'css',
+                                'selector' => '.im-authorbox-bio',
+                            ),
+                        ),
+                        'bio_color'      => array(
+                            'type'        => 'color',
+                            'label'       => __('Biography Color', 'imbb'),
+                            'show_reset'  => true,
+                            'show_alpha'  => true,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.im-authorbox-bio',
+                                'property' => 'color',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),            
     ),
 );

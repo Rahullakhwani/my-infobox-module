@@ -13,8 +13,10 @@ if ('custom_author' === $settings->authorsource) {
 		</div>
 		<div class="im-authorbox-author-wrapper">
 			<div class="im-authorbox-author">
-				<div class="im-authorbox-author-name-container">
-					<span class="im-authorbox-name-span"><?php echo $custom_author_name;?></span>
+				<div class="im-authorbox-authorname-container">
+					<<?php echo $settings->authorname_tag; ?>  class="im-authorbox-authorname">
+						<span class="im-authorbox-name-span"><?php echo $custom_author_name;?></span>
+					</<?php echo $settings->authorname_tag; ?>>
 				</div>
 				
 				<div class="im-authorbox-bio">
