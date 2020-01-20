@@ -20,6 +20,7 @@ if( ! class_exists( 'ImbbLoader' ) ){
         static public function load_modules() {
 
             require_once INFO_BOX_DIR . 'modules/infobox/infobox.php';
+            require_once INFO_BOX_DIR . 'modules/authorbox/authorbox.php';
         }
     }
 }
