@@ -93,7 +93,7 @@ FLBuilder::register_module(
         'style_tab'  => array( // Tab
             'title'    => __('Style', 'imbb'), 
             'sections' => array( 
-                'main_style'        => array( 
+                'box_style'  => array( // Section
                     'title'  => __('Box Style', 'imbb'), 
                     'fields' => array( 
                         'authorbox_border'   => array(
@@ -147,13 +147,51 @@ FLBuilder::register_module(
                         ),
                     ),
                 ),
+                'pic_style' => array( // Section
+                    'title'  => __( 'Profile Picture', 'imbb' ), // Section Title
+                    'fields' => array( // Section Fields
+                        'img_position' => array(
+                            'type'    => 'select',
+                            'label'   => __( 'Position', 'imbb' ),
+                            'default' => 'start',
+                            'options' => array(
+                                'start'  => __( 'Top', 'imbb' ),
+                                'center' => __( 'Middle', 'imbb' ),
+                            ),
+                        ),
+                        'img_border'   => array(
+                            'type'       => 'border',
+                            'label'      => __( 'Border', 'imbb' ),
+                            'responsive' => true,
+                            'preview'    => array(
+                                'type'     => 'css',
+                                'selector' => '.pp-authorbox-img img',
+                            ),
+                        ),
+                        'img_padding'     => array(
+                            'type'        => 'dimension',
+                            'label'       => __( 'Padding', 'imbb' ),
+                            'units'     => array( 'px' ),
+                            'default'   => 10,
+                            'preview'     => array(
+                                'type'     => 'css',
+                                'selector' => '.pp-authorbox-img',
+                                'property' => 'padding',
+                                'unit'     => 'px',
+                            ),
+                            'responsive'  => true,
+                            'slider'      => true,
+                        ),
+                    ),
+                ),
+
             ),
         ),
-        'authorbox_typo' => array(
+        'authorbox_typo' => array( //tab
             'title' => __('Typography', 'imbb'),
             'sections' => array(
-                'name_style' => array(
-                    'title' => __('Name styling', 'imbb'),
+                'name_typo_sect' => array(
+                    'title' => __('Name', 'imbb'),
                     'fields' => array(
                         'authorname_tag' => array(
                             'type' => 'select',
@@ -190,8 +228,8 @@ FLBuilder::register_module(
                         ),
                     ),
                 ),
-                'bio_style' => array(
-                    'title' => __('Biography styling', 'imbb'),
+                'bio_typo_sect' => array(
+                    'title' => __('Biography', 'imbb'),
                     'fields' => array(
                         'bio_typo'      => array(
                             'type'       => 'typography',

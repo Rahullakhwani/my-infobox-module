@@ -5,7 +5,12 @@
     align-items: center;
 }
 
+.im-authorbox-container > *{
+	display: inline-flex;
+}
+
 .im-authorbox-content {
+	width: 100%;
     border: 1px solid #e8e8e8;
 }
 
